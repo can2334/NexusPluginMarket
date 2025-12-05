@@ -2,3 +2,4 @@
 
 URL :: https://can2334.github.io/NexusPluginMarket/
 
+thanks for @phaticusthiccy
