@@ -704,7 +704,7 @@
       <ul>
         <li>
           <a href="https://github.com/can2334/NexusProto">
-            <span>N<small style="color: white; font-size: 16px;">exusProto</small>
+            <span>N <small style="color: white; font-size: 16px;">exus-Proto</small>
             </span>
           </a>
         </li>
@@ -717,7 +717,7 @@
       </a>
     </div>
     <div class="hover-underline" style="cursor: default;">
-      <h1 style="color: #ccc;">NexusProto PLUGINS</h1>
+      <h1 style="color: #ccc;">NEXUS-PROTO PLUGINS</h1>
     </div>
     <div class="controls">
       <div class="search-bar">
@@ -775,25 +775,23 @@
       document.body.classList.add('body-hidden');
     })();
   </script>
-  <script src="src/plugin/plugin.js"></script>
-
   <script>
     let plugins = [];
     let isRendering = false;
     let searchTimeoutId;
     let currentSearchQuery = "";
     let currentAuthorFilter = "all";
-
     async function fetchPlugins() {
       try {
-        plugins = window.localPlugins;
+        const response = await fetch("https://nexusproto.cansalman332.workers.dev/");
+        const data = await response.json();
+        plugins = data;
         sortPlugins(document.getElementById("sortSelect").value);
         populateAuthorsDropdown(plugins);
       } catch (error) {
-        console.error("Local plugin load error:", error);
+        console.error("Error fetching plugins:", error);
       }
     }
-
 
     function populateAuthorsDropdown(plugins) {
       const authorSelect = document.getElementById("authorSelect");
